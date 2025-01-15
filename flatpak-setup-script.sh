@@ -42,3 +42,8 @@ flatpak install -y flathub org.gimp.GIMP
 flatpak install -y flathub onion.torbrowser
 
 echo "All selected applications have been installed successfully!"
+
+#example usage
+#chmod +x install_flatpak_apps.sh
+#./install_flatpak_apps.sh
+
