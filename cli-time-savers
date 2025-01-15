@@ -1,0 +1,33 @@
+echo '
+# Custom aliases
+alias up="sudo apt update -y"
+alias upg="sudo apt upgrade -y"
+alias ll="ls -la"
+alias lp="ps aux --sort=-%cpu | head -n 11"
+alias c="clear"
+alias ..="cd .."
+alias ...="cd ../.."
+alias mkdir="mkdir -pv"
+alias df="df -h"
+alias du="du -h"
+alias free="free -m"
+alias update-grub="sudo update-grub"
+alias ports="netstat -tulanp"
+alias h="history"
+alias j="jobs -l"
+alias path="echo -e ${PATH//:/\\n}"
+alias now="date +\"%T\""
+alias nowdate="date +\"%d-%m-%Y\""
+' >> ~/.bashrc
+
+#c: Clears the terminal screen.
+#.. and ...: Quick navigation to parent and grandparent directories.
+#mkdir: Creates directories with parent directories as needed and provides verbose output.
+#df and du: Show disk usage in human-readable format.
+#free: Display memory usage in megabytes.
+#update-grub: Update GRUB bootloader configuration.
+#ports: List all open ports and associated processes.
+#h: Quick access to command history.
+#j: List all jobs with extra information.
+#path: Display PATH environment variable, one directory per line.
+#now and nowdate: Display current time and date in specific formats.
