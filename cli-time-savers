@@ -31,3 +31,47 @@ alias nowdate="date +\"%d-%m-%Y\""
 #j: List all jobs with extra information.
 #path: Display PATH environment variable, one directory per line.
 #now and nowdate: Display current time and date in specific formats.
+
+#example for mkdir -pv 
+#$ mkdir -pv projects/web_app/src/components
+#mkdir: created directory 'projects'
+#mkdir: created directory 'projects/web_app'
+#mkdir: created directory 'projects/web_app/src'
+#mkdir: created directory 'projects/web_app/src/components'
+
+#$ cd projects/web_app/src/components
+#$ pwd
+#/home/user/projects/web_app/src/components
+
+#$ cd ../../../..
+#$ pwd
+#/home/user
+
+#$ mkdir -pv documents/2025/reports/financial
+#mkdir: created directory 'documents'
+#mkdir: created directory 'documents/2025'
+#mkdir: created directory 'documents/2025/reports'
+#mkdir: created directory 'documents/2025/reports/financial'
+
+#$ cd documents/2025/reports/financial
+#$ pwd
+#/home/user/documents/2025/reports/financial
+
+#$ cd -
+#/home/user
+
+#$ mkdir -pv photos/vacation/2025/summer
+#mkdir: created directory 'photos'
+#mkdir: created directory 'photos/vacation'
+#mkdir: created directory 'photos/vacation/2025'
+#mkdir: created directory 'photos/vacation/2025/summer'
+
+#$ cd photos/vacation/2025/summer
+#$ pwd
+#/home/user/photos/vacation/2025/summer
+
+#$ cd ~
+#$ pwd
+#/home/user
+
+#end of instructions delete when memorised or keep for reference do not uncomment the first character of any comment line
