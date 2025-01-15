@@ -1,0 +1,57 @@
+# Security monitoring and integrity checks
+# This checks if system files have been changed or tampered with
+alias integritycheck='sudo debsums -s'
+# This watches the authentication log in real-time for login attempts
+alias monitorlog='sudo tail -f /var/log/auth.log'
+
+# Firewall management (UFW - Uncomplicated Firewall)
+# Check if firewall is active and see what rules are set
+alias firewallstatus='sudo ufw status'
+# Add a new rule to allow traffic on a port or service
+alias firewallallow='sudo ufw allow'
+# Block traffic on a specific port or service
+alias firewalldeny='sudo ufw deny'
+# Reset firewall to default settings, removing all custom rules
+alias firewallreset='sudo ufw reset'
+
+# Process and network security
+# Look for processes by name without showing 'grep' itself
+alias checkprocs='ps aux | grep -v grep | grep'
+# List all network connections (in use sockets)
+alias netconnections='sudo lsof -i -n -P'
+# Show all listening ports and what processes are using them
+alias listeningports='sudo netstat -tulnp'
+
+# SSH key management
+# Generate a new RSA key with 4096-bit strength
+alias sshgen='ssh-keygen -t rsa -b 4096'
+# Verify your public key from your private key
+alias sshtest='ssh-keygen -y -f ~/.ssh/id_rsa.pub'
+
+# File permissions and ownership
+# Change permissions recursively to read, write, execute for owner, and read & execute for group & others
+alias fixperms='sudo chmod -R 755'
+# Change ownership of files to the current user recursively
+alias fixownership='sudo chown -R $USER:$USER'
+
+# System hardening
+# Enable core dumps for debugging (useful for developers)
+alias enablecoredumps='sudo sysctl -w kernel.core_pattern=core'
+# Disable core dumps to prevent sensitive data exposure
+alias disablecoredumps='sudo sysctl -w kernel.core_pattern='
+# Remove pseudo terminals from securetty to enhance security by limiting login methods
+alias securetty='sudo grep -v "pts" /etc/securetty > /tmp/securetty && sudo mv /tmp/securetty /etc/securetty'
+
+# Auditing and compliance
+# Check if the audit daemon is running (for system activity logging)
+alias auditdstatus='sudo service auditd status'
+# List current audit rules
+alias auditdrules='sudo auditctl -l'
+
+# Security scanning
+# Run Lynis, a security auditing tool for system hardening (Lynis must be installed)
+alias lynischeck='sudo lynis audit system'
+
+# Password management
+# Generate a random password of 32 characters from random data
+alias passgen='dd if=/dev/urandom bs=1 count=16 2>/dev/null | base64 -w 0 | cut -c -32'
